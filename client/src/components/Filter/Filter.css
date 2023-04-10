@@ -1,0 +1,8 @@
+select {
+  outline: 0;
+  background: black;
+  color: green;
+  border: 1px solid green;
+  padding: 4px;
+  border-radius: 0.375rem;
+}

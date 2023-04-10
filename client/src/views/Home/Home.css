@@ -1,0 +1,9 @@
+.container-home {
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+}
+
+.cardcontainer-home {
+  width: 86%;
+}

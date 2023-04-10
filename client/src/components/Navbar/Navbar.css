@@ -1,0 +1,29 @@
+.container-navbar {
+  margin: 0;
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+}
+
+.navbar-link {
+  width: 18%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: large;
+}
+
+.link-home,
+.link-form {
+  width: 50%;
+  text-decoration: none;
+  color: green;
+}
+
+.navbar-title {
+  width: 64%;
+}
+
+.navbar-search {
+  width: 25%;
+}

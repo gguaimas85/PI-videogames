@@ -1,0 +1,95 @@
+.container-form {
+  margin-top: 0;
+}
+
+.title-form{
+  padding-top: 1vw;
+}
+
+.form {
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+}
+
+.title-form {
+  margin-top: 0;
+}
+
+.input-data {
+  width: 45vw;
+  height: 9vh;
+  margin: 1px;
+  display: flex;
+  flex-direction: column;
+}
+
+.label {
+  margin-left: 1px;
+  font-size: large;
+  display: flex;
+  align-items: flex-end;
+
+}
+
+.input {
+  background-color: black;
+  color: green;
+  height: 4vh;
+  border-radius: 0.375rem;
+}
+
+.input{
+  background-color: black;
+  color: green;
+  border: 1px solid green;
+  height: 4vh;
+  border-radius: 0.375rem;
+}
+
+.input-image {
+  cursor: pointer;
+  height: 5vh;
+  padding: 3px;
+  font-size: small;
+  line-height: 1.5;
+  color: green;
+  background-color: black;
+  border: 2px solid green;
+  border-radius: 0.375rem;
+  content: "Search file";
+}
+
+.input-image::file-selector-button {
+  padding: 0.375rem 0.75rem;
+  margin: -0.375rem -0.75rem;
+  height: 5vh;
+  margin-inline-end: 0.75rem;
+  color: green;
+  background-color: rgb(39, 37, 37);
+  border-color: inherit;
+  border-style: solid;
+}
+
+.input-textarea {
+  height: 25vh;
+}
+
+.data-textarea {
+  background-color: black;
+  color: green;
+  height: 12em;
+  border: 1px solid green;
+  border-radius: 0.375rem;
+}
+
+.button-create {
+  margin-top: 1vw;
+  background-color: rgb(0, 240, 48);
+  width: 45vw;
+  height: 5vh;
+  border-radius: 0.375rem;
+  position: bottom;
+  font-size: x-large;
+}

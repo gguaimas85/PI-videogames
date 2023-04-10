@@ -1,0 +1,15 @@
+.cardcontainer {
+  padding: 30px 0 0 30px;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.link {
+  margin: 2px;
+  border-radius: 0.375rem;
+}
+
+.loading{
+  color: green;
+  font-size: x-large;
+}
