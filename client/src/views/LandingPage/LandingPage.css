@@ -2,7 +2,8 @@
   background-color: aqua;
   width: 100%;
   height: 100vh;
-  background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url("./fondoVideogames.jpg");
+  background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
+    url("./fondoVideogames.jpg");
   background-size: cover;
   background-repeat: no-repeat;
   background-position: bottom;
@@ -10,10 +11,18 @@
   justify-content: center;
   align-items: center;
   flex-direction: column;
-  
 }
 
 .link-landing {
   width: 8vw;
   text-decoration: none;
+}
+
+.image-landing{
+
+  filter: opacity(0.5) drop-shadow(0 0 0 green);
+}
+
+.image-landing:hover{
+  transform: scale(1.2);
 }

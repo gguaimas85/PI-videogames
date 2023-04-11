@@ -7,24 +7,31 @@ export default function SearchBar() {
   const dispatch = useDispatch();
   const [name, setName] = useState("");
 
-  const handleInputChange = (e) =>{
+  const handleInputChange = (e) => {
     e.preventDefault();
 
     setName(e.target.value);
-  }
+  };
 
   const handleSubmit = (e) => {
-    e.preventDefault()
+    e.preventDefault();
 
-    dispatch(getVideogameByName(name))
-    setName("")
-  }
+    dispatch(getVideogameByName(name));
+    setName("");
+  };
 
   return (
-    <div className="searchbar">
-      <h3>Searchbar</h3>
-      <input type="text" placeholder="Search Videogame" onChange={e => handleInputChange(e)}/>
-      <button type="submit" onClick={e => handleSubmit(e)}>Search</button>
+    <div>
+      <input
+        type="text"
+        className="search-videogame"
+        placeholder="Search Videogame"
+        value={name}
+        onChange={(e) => handleInputChange(e)}
+      />
+      <button type="submit" className="button-search" onClick={(e) => handleSubmit(e)}>
+        Search
+      </button>
     </div>
   );
 }

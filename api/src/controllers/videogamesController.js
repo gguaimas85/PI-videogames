@@ -1,8 +1,6 @@
 const axios = require("axios");
 require("dotenv").config();
 const { API_KEY } = process.env;
-const videogamesAPILocal = require("../../videogamesAPI");
-const videogameName = require("../../videogameName");
 const { Videogame, Genre, Platform } = require("../db");
 
 const getAllVideogames = async () => {
@@ -39,8 +37,6 @@ const getAllVideogames = async () => {
   });
 
   const videogamesDBClean = cleanDataDB(videogamesDB);
-
-  console.log(videogamesDBClean);
 
   const result = [...videogamesDBClean, ...videogamesClean];
 
@@ -91,13 +87,10 @@ const cleanDataAPI = (arr) => {
 };
 
 const getVideogameById = async (id, source) => {
-  const videogame = "";
-
-
+  let videogame = [];
 
   if (source === "api") {
     let idNumer = parseInt(id);
-    console.log(typeof id);
 
     let dataAPI = (
       await axios.get(`https://api.rawg.io/api/games/${idNumer}?key=${API_KEY}`)
@@ -105,23 +98,34 @@ const getVideogameById = async (id, source) => {
 
     const videogameIdAPI = [dataAPI];
 
-    videogame = [cleanDataAPI(videogameIdAPI)];
+    videogame = cleanDataAPI(videogameIdAPI);
   }
   if (source === "db") {
-    let videogameDB = await Videogame.findByPK(id);
+    let dataDB = await Videogame.findOne({
+      where: { id: id },
+      include: [
+        {
+          model: Genre,
+          attributes: ["name"],
+          through: {
+            attributes: [],
+          },
+        },
+        {
+          model: Platform,
+          attributes: ["name"],
+          through: {
+            attributes: [],
+          },
+        },
+      ],
+    });
+    console.log(dataDB);
+
+    const videogameDB = [dataDB];
 
     videogame = cleanDataDB(videogameDB);
   }
-
-  // let dataAPI = (
-  //   await axios.get(`https://api.rawg.io/api/games/${idNumber}?key=${API_KEY}`)
-  // ).data;
-
-  // const videogameIdAPI = [dataAPI];
-
-  // const videogames = cleanDataAPI(videogameIdAPI);
-
-  // console.log(videogames);
 
   return videogame;
 };
@@ -131,6 +135,22 @@ const getVideogameByName = async (name) => {
     where: {
       name: name,
     },
+    include: [
+      {
+        model: Genre,
+        attributes: ["name"],
+        through: {
+          attributes: [],
+        },
+      },
+      {
+        model: Platform,
+        attributes: ["name"],
+        through: {
+          attributes: [],
+        },
+      },
+    ],
   });
 
   let dataAPI = (
@@ -141,11 +161,11 @@ const getVideogameByName = async (name) => {
 
   const videogamesByNameAPI = dataAPI.results;
 
-  const vidoegamesDBName = cleanDataDB(cleanDataDB);
+  const vidoegamesDBNameClean = cleanDataDB(dataDBvideogames);
 
   const videogamesDBClean = cleanDataAPI(videogamesByNameAPI);
 
-  const result = [...vidoegamesDBName, ...videogamesDBClean];
+  const result = [...vidoegamesDBNameClean, ...videogamesDBClean];
 
   const firstFifteen = result.slice(0, 15);
 
@@ -193,8 +213,8 @@ const createVideogame = async (
 
   await newVideogameDB.addPlatforms(platformsDB);
 
-  const result = newVideogameDB;
-  return result;
+  // const result = newVideogameDB;
+  // return result;
 };
 
 module.exports = {

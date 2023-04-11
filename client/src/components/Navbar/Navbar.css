@@ -26,4 +26,7 @@
 
 .navbar-search {
   width: 25%;
+  display: flex;
+  align-items: center;
+
 }

@@ -1,7 +1,11 @@
 import React from "react";
 import "./Filter.css";
 import { useDispatch, useSelector } from "react-redux";
-import { filterCreated, filterVideogamesByGenre, orderByName } from "../../redux/action";
+import {
+  filterCreated,
+  filterVideogamesByGenre,
+  orderByName,
+} from "../../redux/action";
 
 export default function Filter() {
   const dispatch = useDispatch();
@@ -20,11 +24,10 @@ export default function Filter() {
   };
 
   const handlerSort = (event) => {
+    event.preventDefault();
     const value = event.target.value;
-    //event.preventDefault();
-    console.log(value);
-    dispatch(orderByName(value))
-    
+
+    dispatch(orderByName(value));
   };
 
   return (
@@ -36,7 +39,7 @@ export default function Filter() {
           name="data-from"
           id="from"
           className="select-filter"
-          onChange={e => handlerFilterCreated(e)}
+          onChange={(e) => handlerFilterCreated(e)}
         >
           <option value="All">All Vidieogames</option>
           <option value="API">API</option>
@@ -45,7 +48,11 @@ export default function Filter() {
       </div>
       <div>
         <h3>Genres</h3>
-        <select name="genres" id="genres" onChange={e => handlerFilterGenre(e)}>
+        <select
+          name="genres"
+          id="genres"
+          onChange={(e) => handlerFilterGenre(e)}
+        >
           <option value="All">All Genres</option>
           {genres.map((g) => (
             <option value={g.name} key={g.id}>
@@ -56,7 +63,7 @@ export default function Filter() {
       </div>
       <div>
         <h3>Order</h3>
-        <select name="data-order" id="order" onChange={e => handlerSort(e)}>
+        <select name="data-order" id="order" onChange={(e) => handlerSort(e)}>
           <option value="">Select Order</option>
           <option value="asc">A - Z </option>
           <option value="des">Z - A</option>

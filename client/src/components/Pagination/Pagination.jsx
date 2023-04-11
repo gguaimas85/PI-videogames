@@ -28,37 +28,39 @@ export default function Pagination({
   };
 
   return (
-    <nav className="pagination">
-      <a
-        className={`pagination-link link-navigation ${
-          currentPage === 1 ? "is-disabled" : ""
-        }`}
-        onClick={onPreviusPage}
-      >
-        Anterior
-      </a>
-      <ul>
-        {pageNumbers.map((numPage) => (
-          <li key={numPage}>
-            <a
-              className={`pagination-link link-navigation-page ${
-                numPage === currentPage ? "is-active" : ""
-              }`}
-              onClick={() => onSpecificPage(numPage)}
-            >
-              {numPage}
-            </a>
-          </li>
-        ))}
-      </ul>
-      <a
-        className={`pagination-link link-navigation ${
-          currentPage >= pageNumbers.length ? "is-disabled" : ""
-        }`}
-        onClick={onNextPage}
-      >
-        Siguiente
-      </a>
-    </nav>
+    <div className="container-pagination">
+      <nav className="pagination">
+        <a
+          className={`pagination-link link-navigation ${
+            currentPage === 1 ? "is-disabled" : ""
+          }`}
+          onClick={onPreviusPage}
+        >
+          Anterior
+        </a>
+        <ul>
+          {pageNumbers.map((numPage) => (
+            <li key={numPage}>
+              <a
+                className={`pagination-link link-navigation-page ${
+                  numPage === currentPage ? "is-active" : ""
+                }`}
+                onClick={() => onSpecificPage(numPage)}
+              >
+                {numPage}
+              </a>
+            </li>
+          ))}
+        </ul>
+        <a
+          className={`pagination-link link-navigation ${
+            currentPage >= pageNumbers.length ? "is-disabled" : ""
+          }`}
+          onClick={onNextPage}
+        >
+          Siguiente
+        </a>
+      </nav>
+    </div>
   );
 }

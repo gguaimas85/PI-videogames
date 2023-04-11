@@ -1,3 +1,23 @@
-.searchbar{
-    background-color: cornflowerblue;
+.search-videogame {
+  width: 15vw;
+  cursor: pointer;
+  height: 3vh;
+  padding: 3px;
+  font-size: small;
+  color: green;
+  background-color: black;
+  border: 2px solid green;
+  border-radius: 0.375rem 0 0 0.375rem;
+}
+
+.button-search {
+  width: 5vw;
+  cursor: pointer;
+  height: 4.66vh;
+  color: green;
+  background-color: rgb(39, 37, 37);
+  border-color: inherit;
+  border: 2px solid green;
+  font-size: small;
+  border-radius: 0 0.375rem 0.375rem 0;
 }

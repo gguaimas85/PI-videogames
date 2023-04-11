@@ -1,5 +1,4 @@
 const axios = require("axios");
-const genresFromAPI = require("../../genresAPI");
 require("dotenv").config();
 const { API_KEY } = process.env;
 const { Platform } = require("../db");

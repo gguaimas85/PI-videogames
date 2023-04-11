@@ -73,7 +73,6 @@ const rootReducer = (state = intialStore, action) => {
               return 0;
             });
 
-      console.log(sortedArr);
       return { ...state, videogames: sortedArr };
     case GET_VIDEOGAME_BY_ID:
       return { ...state, details: action.payload };
